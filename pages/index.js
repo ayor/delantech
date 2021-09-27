@@ -6,24 +6,20 @@ import Team from '../components/Team/Team';
 
 export default function Home() {
   const [showNav, setShowNav] = useState(false);
- 
-  const handleNav = () => {
-    const val = window.scrollY;
-    if (val > 1) {
-      setShowNav(true);
-    }else{
-      setShowNav(false);
-    }
-  }
-
-  
 
   useEffect(() => {
-   
+    const handleNav = () => {
+      const val = window.scrollY;
+      if (val > 1) {
+        setShowNav(true);
+      }else{
+        setShowNav(false);
+      }
+    }
     document.addEventListener("scroll", handleNav);
 
     return () => { document.removeEventListener("scroll", handleNav) }
-  },[handleNav])
+  })
   return (
     <>
       <Header navBackgroundState={showNav} />

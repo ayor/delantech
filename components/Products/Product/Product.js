@@ -11,7 +11,7 @@ const Product = props => {
     return (
         // props.imageUrl === null ? <Loading /> : 
         <div className="col col-md-6 col-lg-3 mb-4 text-center">
-            <Image className="img-fluid rounded" src={props.imageUrl} width="150" height="150" />
+            <Image className="img-fluid rounded" src={props.imageUrl} width="150" height="150" alt={props.name}/>
             <small className="text-secondary my-2 d-block font-weight-bolder">{props.name}</small>
             <Btn title={props.price} iconName={"shopping-cart"} clicked={() => dipatch(addToCart(props.id))} />
         </div>

@@ -12,19 +12,19 @@ const Team = () => (
         <div className="my-5 mx-auto row">
             <div className="col text-center d-flex justify-content-around">
                 <div className={TeamStyle.Member}>
-                    <Image src={CEO} width="100" height="100" className="img-fluid rounded-circle" />
+                    <Image src={CEO} width="100" height="100" className="img-fluid rounded-circle" alt="CEO" />
 
                     <small className="d-block font-weight-600">Samuel Jaguda </small>
                     <small className="d-block text-dark">C.E.O</small>
 
                 </div>
                 <div className={TeamStyle.Member}>
-                    <Image src={CTO} width="100" height="100" className="img-fluid rounded-circle" />
+                    <Image src={CTO} width="100" height="100" className="img-fluid rounded-circle" alt="CTO" />
                     <small className="d-block font-weight-600">Samuel Jaguda </small>
                     <small className="d-block text-dark">C.E.O</small>
                 </div>
                 <div className={TeamStyle.Member}>
-                    <Image src={HR} width="100" height="100" className="img-fluid rounded-circle" />
+                    <Image src={HR} width="100" height="100" className="img-fluid rounded-circle" alt="HR Manager" />
                     <small className="d-block font-weight-600">Samuel Jaguda </small>
                     <small className="d-block text-dark">C.E.O</small>
                 </div>

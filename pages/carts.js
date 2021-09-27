@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-
+import Index from "../components/Carts/carts";;
 const carts = () => (<>
-<small>the carts page</small>
+    <Index />
 </>);
 
 export default carts;

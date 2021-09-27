@@ -1,0 +1,38 @@
+.Active{
+    color: #46B5F3;
+}
+.Cart{
+   position: absolute;
+   top: 17px;
+   z-index: 1px;
+   color: #f37d46 !important;
+   font-size: 10px;
+   font-weight: bold;
+   right: 6px;
+    
+}
+.NavBar{
+background-color: rgb(32, 32, 32);
+padding: 20px;
+animation: showBkg 1s ease;
+transition: all;
+}
+
+.PageNav{
+    border-left: 3px solid  #46B5F3;
+    color: #7F8081;
+    padding-left: 10px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+@keyframes showBkg{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+
+}

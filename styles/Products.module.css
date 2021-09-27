@@ -1,0 +1,109 @@
+.Underline{
+    width:700px;
+    height: 73px;
+    margin-top: -10px;
+}
+
+
+
+.LockImage{
+    background-image: url(/img/mortise\ 2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 214px;
+}
+
+.IottyImage{
+    background-image: url(/img/E2.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 214px;
+    /* border-left: 1px #7F8081 solid ; */
+}
+
+.BannerText{
+    padding: 10px;
+}
+.BannerText > small{
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 30px;
+letter-spacing: 0.1em;
+color: #E5E5E5;
+
+
+}
+
+.BannerSVG {
+    width:273px;
+    height:15px;
+    margin-top: -10px;
+    margin-left: 120px;
+
+}
+
+.BannerBtn{
+    align-self: center;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+
+
+/* responsive constraints */
+
+@media screen and (max-width: 1024px) {
+
+    .Container > h3 {
+      font-size: 25px;
+    }
+  
+  }
+  @media screen and (max-width: 768px) {
+  
+    .Container > h3 {
+      font-size: 20px;
+    }
+    .Underline{
+        width:400px;
+        height: 73px;
+    }
+    .BannerSVG {
+        margin-top: -10px;
+        margin-left: 75px;
+    
+    }
+    .BannerText > h1, .BannerText > small {
+        margin: 0 auto;
+    }
+  }
+  @media screen and (max-width: 500px) {
+
+    .Container > h3 {
+      font-size: 15px;
+    }
+    .Underline{
+        width:300px;
+        height: 73px;
+    }
+    .BannerText {
+        text-align: center;
+    }
+    
+  }
+  @media screen and (max-width: 375px) {
+
+    .BannerSVG {
+        margin-top: -10px;
+        margin-left: 50px;
+    
+    }
+  }

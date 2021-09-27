@@ -1,0 +1,55 @@
+.Slide1 > h1{
+  font-size: 65px;
+  text-align: right;
+  width: 50%;
+}
+.Slide1 > p{
+  font-size: 21px;
+  width: 50%;
+}
+
+/* responsive constraints */
+
+@media screen and (max-width: 1024px) {
+
+    .Container > h3 {
+      font-size: 25px;
+    }
+  
+  }
+  @media screen and (max-width: 768px) {
+  
+    .Container > h3 {
+      font-size: 20px;
+    }
+    .Underline{
+        width:400px;
+        height: 73px;
+    }
+    .BannerSVG {
+        margin-top: -10px;
+        margin-left: 75px;
+    
+    }
+  }
+  @media screen and (max-width: 500px) {
+
+    .Container > h3 {
+      font-size: 15px;
+    }
+    .Underline{
+        width:300px;
+        height: 73px;
+    }
+    .BannerText {
+        text-align: center;
+    }
+  }
+  @media screen and (max-width: 375px) {
+
+    .BannerSVG {
+        margin-top: -10px;
+        margin-left: 50px;
+    
+    }
+  }

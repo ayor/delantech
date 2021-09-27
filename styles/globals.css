@@ -1,16 +1,50 @@
 html,
 body {
+  overflow-x: hidden;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:'Poppins' sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1, h2, h3{
+  font-weight: bold !important;
+}
+h1{
+  font-size: 55px;
+}
+
+h2{
+  font-size: 45px !important; 
+}
+h3{
+  font-size: 25px !important;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  font-weight: 600;
 }
 
 * {
   box-sizing: border-box;
 }
+/* embla */
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  border-radius: 10px;
+
+  display: flex;
+  height: 300px;
+}
+.embla__slide {
+  border-radius: 10px;
+
+  position: relative;
+  flex: 0 0 100%;
+}
+/* embla end */

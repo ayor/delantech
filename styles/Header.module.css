@@ -1,0 +1,43 @@
+.Header{
+  background: linear-gradient(rgba(0,0,0,.5) ,rgba(0,0,0,.6)) 35%, url(/img/headerBackground.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.Banner{
+  width: 50%;
+}
+.Banner > small{
+line-height: 30px;
+letter-spacing: .5em;
+color: rgba(243, 243, 243, 0.77);
+
+
+}
+.Banner > h1 {
+  font-size: 55px;
+}
+
+/* responsive constraints */
+
+@media screen and (max-width: 1024px) {
+
+  .Banner > h1 {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 700px) {
+
+  .Banner > h1 {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .Banner{
+    width: 100%;
+    text-align: center;
+  }
+  .Banner > h1 {
+    font-size: 40px;
+  }
+}

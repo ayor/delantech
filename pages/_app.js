@@ -5,8 +5,25 @@ import Layout from '../components/Layout';
 import Script from "next/script";
 import { store } from '../store/store';
 import { Provider } from 'react-redux'
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+
+  useEffect(() => {
+
+    const fontAwesome = document.createElement("script"); 
+    fontAwesome.setAttribute("src", "https://kit.fontawesome.com/2b33a4ca20.js");
+    fontAwesome.setAttribute("crossOrigin", "anonymous");
+
+    document.getElementsByTagName("head")[0].appendChild(fontAwesome);
+
+
+    return () => {
+      if (fontAwesome) {
+        fontAwesome.remove();
+      }
+    }
+  })
 
   return (
     <>
@@ -26,10 +43,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <Provider store={store}>
         <Layout>
-          <Script src="https://kit.fontawesome.com/2b33a4ca20.js" crossOrigin="anonymous" />
+          {/* <Script src="" ="" /> */}
           <Component {...pageProps} />
         </Layout>
       </Provider>
+      
     </>
   )
 }

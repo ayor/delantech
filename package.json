@@ -12,6 +12,7 @@
     "@reduxjs/toolkit": "^1.6.1",
     "bootstrap": "^5.1.1",
     "embla-carousel": "^4.5.3",
+    "fast-crc32c": "^2.0.0",
     "firebase": "^9.1.0",
     "firebase-admin": "^9.11.1",
     "next": "11.0.1",

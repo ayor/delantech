@@ -39,7 +39,9 @@ const Navbar = ({ showBackground }) => {
                     </ul>
                     <div>
                         <Link href="/carts" passHref>
-                            <i className="fas fa-shopping-cart text-light"></i><span className={" mx-2 text-light  " + NavStyles.Cart}>{cart.length}</span>
+                            <div>
+                                <i className="fas fa-shopping-cart text-light"></i><span className={" mx-2 text-light  " + NavStyles.Cart}>{cart.length}</span>
+                            </div>
                         </Link>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { db } from "./middleware/db";
+import { db } from "../../middleware/db";
 
 export default async function handler(req, res) {
   const products = [];
@@ -10,6 +10,5 @@ export default async function handler(req, res) {
       product: doc.data()
     })
   });
-  console.log(products)
   res.status(200).json({ products })
 }

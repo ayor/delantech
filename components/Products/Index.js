@@ -11,7 +11,7 @@ const Index = (props) => {
     const [switches, setSwitches] = useState([]);
 
     const getProductDetails = async () => {
-        const res = await fetch(`http://localhost:3000/api/hello`);
+        const res = await fetch(`/api/hello`);
         const response = await res.json();
 
         setLocks(response.products.filter(({product}) => product.type === "lock"));

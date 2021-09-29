@@ -7,17 +7,17 @@ const OrderForm = ({ totalPrice }) => {
         <p className="text-light">Total : {price}</p>
         <div className="form-row  m-2">
             <div className="form-group ">
-                <label for="inputEmail4">Email</label>
+                <label htmlFor="inputEmail4">Email</label>
                 <input type="email" className="form-control" id="inputEmail4" placeholder="Email" />
             </div>
         </div>
         <div className="form-group m-2">
-            <label for="inputAddress">Address</label>
+            <label htmlFor="inputAddress">Address</label>
             <input type="text" className="form-control" id="inputAddress" placeholder="1234 Main St" />
         </div>
         <div className="form-row m-2">
             <div className="form-group col-md-4 ">
-                <label for="inputCity">City</label>
+                <label htmlFor="inputCity">City</label>
                 <input type="text" className="form-control" id="inputCity" />
             </div>
             <div className="form-group col-md-6 ">

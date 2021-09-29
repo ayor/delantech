@@ -1,0 +1,7 @@
+.CartInput{
+    width: 80px  !important;
+}
+
+.Delete:hover{
+    cursor: pointer;
+}

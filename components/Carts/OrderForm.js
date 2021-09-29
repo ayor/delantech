@@ -21,7 +21,7 @@ const OrderForm = ({ totalPrice }) => {
                 <input type="text" className="form-control" id="inputCity" />
             </div>
             <div className="form-group col-md-6 ">
-                <label for="inputState">State</label>
+                <label htmlFor="inputState">State</label>
                 <select id="inputState" className="form-control form-control-sm">
                     <option selected>Choose...</option>
                     <option>...</option>

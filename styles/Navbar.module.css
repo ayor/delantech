@@ -53,4 +53,12 @@ transition: all;
     .Menu{
         display: none;
     }
+
 }
+@media (max-width: 576px){
+    .Cart{
+        top: 115px;
+    }
+
+}
+

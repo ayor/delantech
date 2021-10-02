@@ -17,7 +17,9 @@ const Navbar = ({ showBackground, page }) => {
     return (
         <div className="container">
             <nav className={ "navbar navbar-expand-sm navbar-light fixed-top p-3 " + NavStyles.NavBar }>
-                <a className="navbar-brand " href="/">DelanTech</a>
+                <Link href="/" passHref>
+                <a className="navbar-brand " >DelanTech</a>
+                </Link>
                 {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button> */}

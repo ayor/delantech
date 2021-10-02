@@ -11,11 +11,18 @@ const Index = (props) => {
     const [switches, setSwitches] = useState([]);
 
     const getProductDetails = async () => {
-        const res = await fetch(`/api/hello`);
-        const response = await res.json();
-
-        setLocks(response.products.filter(({product}) => product.type === "lock"));
-        setSwitches(response.products.filter(({product}) => product.type === "switch"));
+        try {
+            const res = await fetch(`/api/products`);
+            const response = await res.json();
+    
+    
+    
+            setLocks(response.products.filter(({product}) => product.type === "lock"));
+            setSwitches(response.products.filter(({product}) => product.type === "switch"));
+        } catch (error) {
+            //display error message here 
+        }
+       
     };
 
     useEffect(() => {

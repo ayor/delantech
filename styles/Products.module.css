@@ -2,6 +2,7 @@
     width:700px;
     height: 73px;
     margin-top: -10px;
+    margin-left: 280px;
 }
 
 
@@ -42,7 +43,7 @@ color: #E5E5E5;
     width:273px;
     height:15px;
     margin-top: -10px;
-    margin-left: 120px;
+    margin-left: 150px;
 
 }
 
@@ -60,10 +61,22 @@ color: #E5E5E5;
 
 /* responsive constraints */
 
+@media screen and (max-width: 1350px) {
+.Underline{
+  margin-left: 120px;
+
+}
+}
 @media screen and (max-width: 1024px) {
 
     .Container > h3 {
       font-size: 25px;
+    }
+
+    .Underline{
+      width:500px;
+      height: 73px;
+      margin-left: 80px;
     }
   
   }
@@ -75,10 +88,11 @@ color: #E5E5E5;
     .Underline{
         width:400px;
         height: 73px;
+        margin-left: 40px;
     }
     .BannerSVG {
-        margin-top: -10px;
-        margin-left: 75px;
+        margin-top: -7px;
+        margin-left: 135px;
     
     }
     .BannerText > h1, .BannerText > small {
@@ -91,19 +105,26 @@ color: #E5E5E5;
       font-size: 15px;
     }
     .Underline{
-        width:300px;
-        height: 73px;
+      width: 350px;
+      margin-left: 20px;
+       
     }
     .BannerText {
         text-align: center;
     }
     
   }
-  @media screen and (max-width: 375px) {
+  @media screen and (max-width: 420px) {
 
     .BannerSVG {
+      width:200px;
         margin-top: -10px;
-        margin-left: 50px;
+        margin-left: 100px;
     
+    }
+    .Underline{
+      width: 300px;
+      margin-left: 12px;
+       margin-top: -25px;
     }
   }

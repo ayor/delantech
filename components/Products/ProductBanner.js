@@ -19,7 +19,7 @@ const ProductBanner = ({ header, subText, hasheader, productBackgroundStyle, bkg
 
                         <small className={`my-3 d-block ${hasheader ? "text-muted" : ""} lead`}>{subText} {hasheader ? <i className="fas fa-microphone "></i> : null}</small>
                         <Link href={passedHref} passHref>
-                        <a className="btn btn-info d-block">Make An Order</a>
+                        <a className="btn btn-info d-block mx-auto">Make An Order</a>
                         </Link>
                        
                     </div>

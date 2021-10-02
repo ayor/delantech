@@ -1,7 +1,34 @@
 .CartInput{
+    text-align: center;
     width: 80px  !important;
 }
 
 .Delete:hover{
     cursor: pointer;
+}
+
+.H1{
+    font-size: 45px !important;
+}
+
+@media (max-width: 765px) {
+    .CartInput{
+        font-size: 10px;
+        height: 30px;
+        width: 30px  !important;
+    }
+    .CartItem > div > small{
+        font-size: 10px;
+    }
+    .CartItem > div >div  > button {
+        height: 30px;
+        /* width: 20px; */
+        padding:0 auto;
+        font-size: 12px;
+    }
+
+    .H1{
+        font-size: 30px !important;
+    }
+    
 }

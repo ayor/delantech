@@ -35,6 +35,10 @@ transition: all;
     font-weight: 200;
 }
 
+.Menu:hover{
+    cursor: pointer;
+}
+
 @keyframes showBkg{
     0%{
         opacity: 0;
@@ -43,4 +47,10 @@ transition: all;
         opacity: 1;
     }
 
+}
+
+@media (min-width: 576px){
+    .Menu{
+        display: none;
+    }
 }

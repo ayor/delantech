@@ -18,6 +18,12 @@
   
   }
   @media screen and (max-width: 768px) {
+    .SlideText{
+      font-size: 12px !important;
+    }
+    .H1{
+      font-size: 30px !important;
+    }
   
     .Container > h3 {
       font-size: 20px;
@@ -33,6 +39,7 @@
     }
   }
   @media screen and (max-width: 500px) {
+    
 
     .Container > h3 {
       font-size: 15px;

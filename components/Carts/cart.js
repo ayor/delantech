@@ -1,17 +1,17 @@
 import Image from 'next/image';
-import { convert } from '../../convertToNGN';
+import { convert } from '../../middleware/convertToNGN';
 import styles from '../../styles/Carts.module.css';
 
 const cart = ({ imageUrl, name, price, qty, deleteItem, increment, decrement, handleChange }) => (
     <div className="row">
-        <div className=" col d-flex justify-content-between ">
-            <div className="product-detail text-center m-3 col-auto">
+        <div className={" col d-flex justify-content-between "+styles.CartItem}>
+            <div className="product-detail text-center p-3 w-25 col-auto">
                 <Image src={imageUrl} width="60" height="60" alt={name} />
                 <small className="text-secondary d-block">{name}</small>
-                <small className="text-secondary d-block">{convert(price)}</small>
+                <small className="text-secondary d-block">@{price}</small>
             </div>
-            <div className="text-center my-auto">
-                <h6 className="text-secondary">Qty</h6>
+            <div className="text-center p-1 w-50 my-auto">
+                {/* <h6 className="text-secondary">Qty</h6> */}
                 <div className="input-group">
                     <button className="btn btn-outline-danger input-group-prepend" onClick={decrement}>
                         -
@@ -24,14 +24,12 @@ const cart = ({ imageUrl, name, price, qty, deleteItem, increment, decrement, ha
 
                 </div>
             </div>
-            <div className="text-center my-auto">
-                <h6 className="text-secondary">Price</h6>
-                <div className="">
-                    <p>{convert(price * qty)}</p>
+            <div className="text-center w-25 my-auto">
+              
+                    <small>{convert(price * qty)}</small>
 
-                </div>
             </div>
-            <div className={"text-center my-auto "+ styles.Delete}  onClick={deleteItem}>
+            <div className={"text-center w-25 my-auto "+ styles.Delete}  onClick={deleteItem}>
                 <i className="fas fa-times-circle text-muted"></i>
             </div>
 

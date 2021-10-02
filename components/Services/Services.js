@@ -22,8 +22,8 @@ const Services = () => {
                             backgroundPosition: "center"
                         }}>
                             <div className={"d-flex h-100 justify-content-between align-items-center text-light p-3 " + ServiceStyle.Slide1}>
-                                <p className="">Enjoy an immersive experience bringing movies to life and allowing you enjoy them as well as their directors intended.</p>
-                                <h1>Home Cinemas</h1>
+                                <p className={ServiceStyle.SlideText}>Enjoy an immersive experience bringing movies to life and allowing you enjoy them as well as their directors intended.</p>
+                                <h1 className={ServiceStyle.H1}>Home Cinemas</h1>
                             </div>
 
                         </div>
@@ -33,8 +33,8 @@ const Services = () => {
                             backgroundPosition: "center"
                         }}>
                             <div className={"d-flex h-100 justify-content-between align-items-center text-light p-3 " + ServiceStyle.Slide1}>
-                                <p className="">Our Smart Home Solution put Delan technologies on the map as a market leader in Home Automation industry.</p>
-                                <h1>Smart Homes & Hotels</h1>
+                                <p className={ServiceStyle.SlideText}>Our Smart Home Solution put Delan technologies on the map as a market leader in Home Automation industry.</p>
+                                <h1 className={ServiceStyle.H1}>Smart Homes & Hotels</h1>
                             </div>
                         </div>
                         <div className="embla__slide" style={{
@@ -43,8 +43,8 @@ const Services = () => {
                             backgroundPosition: "center"
                         }}>
                             <div className={"d-flex h-100 justify-content-between align-items-center text-light p-3 " + ServiceStyle.Slide1}>
-                                <p className="">Our Smart Office Solutions start with advanced conference room solutions and traverse the entire office</p>
-                                <h1>Smart Offices</h1>
+                                <p className={ServiceStyle.SlideText}>Our Smart Office Solutions start with advanced conference room solutions and traverse the entire office</p>
+                                <h1 className={ServiceStyle.H1}>Smart Offices</h1>
                             </div>
                         </div>
                     </div>

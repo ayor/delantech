@@ -1,6 +1,7 @@
 import Cart from './cart';
 import Link from 'next/link';
 import OrderForm from './OrderForm';
+import styles from '../../styles/Carts.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, deleteCartItem, updateQty } from '../../store/cartSlice';
 import { useEffect } from 'react';
@@ -19,9 +20,9 @@ const Carts = () => {
         <div className="row pt-4 px-4 mt-5">
             <div className="col">
                 <div className="">
-                    <h2 className="h2">Cart Items</h2>
+                    <h2 className={styles.H1}>Cart Items</h2>
                     <Link href="/#product" passHref>
-                        <small className="text-muted d-block"><u>continue shopping</u></small>
+                        <a className="text-muted d-block"><u>continue shopping</u></a>
                     </Link>
                 </div>
             </div>
@@ -31,13 +32,11 @@ const Carts = () => {
             height: "400px",
             overflowY: "scroll"
         }}>
-            <div className="col-md-7 col-sm-12">
+            <div className="col-md-12 col-lg-7">
                 {cartsView}
             </div>
-            <div className="col-md-5 col-sm-12">
-                <form >
+            <div className="col-md-12 col-lg-5">
                     <OrderForm totalPrice={totalPrice} />
-                </form>
             </div>
         </div>
     </section>)

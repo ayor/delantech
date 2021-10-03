@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { convert } from "../../middleware/convertToNGN";
 import { validateEmail } from '../../middleware/validate';
 import { useSelector } from 'react-redux'
@@ -17,7 +17,7 @@ const OrderForm = ({ totalPrice }) => {
     const _url = "https://countriesnow.space/api/v0.1/countries";
 
     const price = convert(totalPrice);
-    const fetchData = async (url, cb, method, data) => {
+    const fetchData = useCallback (async (url, cb, method, data) => {
         try {
             let res;
             let response;
@@ -43,7 +43,7 @@ const OrderForm = ({ totalPrice }) => {
         } catch (error) {
             setErrorMessage(errorMessage)
         }
-    }
+    })
     useEffect(() => {
         fetchData(_url, (data) => {
             setCountries(data);

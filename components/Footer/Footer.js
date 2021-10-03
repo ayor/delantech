@@ -12,11 +12,11 @@ const Footer = () => (
                     We aim to minimize the number of health & safety and environmental incidents and ultimately to achieve an incident-free working environment. We recognize and accept our duty to protect the health and safety of all visitors to the company, including sub-contractors and temporary workers, as well as any members of the public who might be affected by our operations. Our health, safety and environmental policy will be continually monitored and updated to ensure continual improvement of the management systems.
 The policy will be updated at least every 12 months.</p>
                     <ul className="list-inline">
-                        <li className="list-inline-item"><a href="https://www.facebook.com/citrinetech" target="_blank" rel="noreferrer"></a><i className="fa fa-facebook-square text-light"></i></li>
-                        <li className="list-inline-item"><a href="https://twitter.com/citrinetech" target="_blank" rel="noreferrer"><i className="fa fa-twitter  text-light"></i></a></li>
-                        <li className="list-inline-item"><a href="https://www.linkedin.com/company/citrineltd" target="_blank" rel="noreferrer"><i className="fa fa-linkedin-square  text-light"></i></a></li>
-                        <li className="list-inline-item"><a href="https://www.instagram.com/citrinetech/?hl=en" target="_blank" rel="noreferrer"><i className="fa fa-instagram  text-light"></i></a></li>
-                        <li className="list-inline-item"><a href="https://www.youtube.com/channel/UCSws4FRBtxqn-tcmAYAIHgA" target="_blank" rel="noreferrer"><i className="fa fa-youtube text-light"></i></a></li>
+                        <li className="list-inline-item"><Link href="https://www.facebook.com/Delantech/" ><span><a target="_blank" rel="noreferrer"><i className="fa fa-facebook-square text-light"></i></a></span></Link></li>
+                        <li className="list-inline-item"><Link href="https://twitter.com/Delantech_" target="_blank" rel="noreferrer"><span><a target="_blank" rel="noreferrer"><i className="fa fa-twitter  text-light"></i></a></span></Link></li>
+                        <li className="list-inline-item"><Link href="#" ><span><a target="_blank" rel="noreferrer"><i className="fa fa-linkedin-square  text-light"></i></a></span></Link></li>
+                        <li className="list-inline-item"><Link href="https://www.instagram.com/delantech/" target="_blank" rel="noreferrer"><span><a target="_blank" rel="noreferrer"><i className="fa fa-instagram  text-light"></i></a></span></Link></li>
+                        <li className="list-inline-item"><Link href="/" ><span><a target="_blank" rel="noreferrer"><i className="fa fa-youtube text-light"></i></a></span></Link></li>
                     </ul>
                 </div>
                 <div className="col-md-4 col-sm-6">

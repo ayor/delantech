@@ -5,8 +5,9 @@ import MenuBar from './HamburgerMenu';
 import { useEffect, useState } from 'react';
 
 const Navbar = ({ showBackground, page }) => {
-    const cartLength = useSelector((state) => state.cart.value.length);
-    const [toggleBar, setToggleState] = useState(true);
+    const cartLength = useSelector((state) => state.cart.items.length);
+    const [toggleBar, setToggleState] = useState(false);
+    const [classNames, setClassNames] = useState(NavStyles.Links)
 
     useEffect(()=>{
        if(window.screen["width"] >= 565){
@@ -24,7 +25,7 @@ const Navbar = ({ showBackground, page }) => {
                     <span className="navbar-toggler-icon"></span>
                 </button> */}
                 <MenuBar clicked={() => setToggleState(!toggleBar)} />
-                {toggleBar ? <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
+                {toggleBar ? <div className={"collapse navbar-collapse d-flex justify-content-between "+ NavStyles.Links} id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto " >
                         <li className="nav-item mr-2">
                             <Link href="/">
@@ -41,11 +42,7 @@ const Navbar = ({ showBackground, page }) => {
                                 <a className="nav-link " > <span className={page === "serv" ? NavStyles.Active : ""}>Services</span></a>
                             </Link>
                         </li>
-                        <li className="nav-item mr-2">
-                            <Link href="/#team">
-                                <a className="nav-link " > <span className={page === "team" ? NavStyles.Active : ""}>Team</span></a>
-                            </Link>
-                        </li>
+                       
                     </ul>
                     <div>
                         <Link href="/carts" passHref>

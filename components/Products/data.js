@@ -1,4 +1,4 @@
-import Mortise from '../../public/img/mortise 2.jpeg';
+import Mortise from '../../public/img/mortise2.jpeg';
 import Deadbolt from '../../public/img/deadbolt 2s.png';
 import Keybox from '../../public/img/keybox-3-hero-2.png';
 // import Keybox from '/img/keybox-3-hero-2.png';

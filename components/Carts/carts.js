@@ -8,9 +8,9 @@ import { useEffect } from 'react';
 
 const Carts = () => {
     const dispatch = useDispatch();
-    const { value, totalPrice } = useSelector((state) => state.cart);
+    const { items, totalPrice } = useSelector((state) => state.cart);
 
-    const cartsView = value.length === 0 ? (<small>There are currently no items in your cart..</small>) : value.map(item => (
+    const cartsView = items.length === 0 ? (<small>There are currently no items in your cart..</small>) : items.map(item => (
         <Cart
             key={item.id} imageUrl={item.imageUrl} qty={item.qty} increment={() => dispatch(increment(item.id))} handleChange={(ev) => dispatch(updateQty({ id: item.id, qty: ev.target.value }))}
             deleteItem={() => dispatch(deleteCartItem(item.id))} decrement={() => dispatch(decrement(item.id))}

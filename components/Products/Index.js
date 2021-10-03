@@ -4,7 +4,7 @@ import ProductHeader from './ProductHeader';
 import ProductBanner from './ProductBanner';
 import Products from './Products';
 import { useEffect, useState } from 'react'
-import { LockInfo, IottyInfo } from "./data";
+// import { LockInfo, IottyInfo } from "./data";
 
 const Index = (props) => {
     const [locks, setLocks] = useState([]);
@@ -36,7 +36,7 @@ const Index = (props) => {
                 <ProductHeader />
                 <ProductBanner productBackgroundStyle={ProductStyle.LockImage} bkgColor={"#5C5C5C"} subText={"The Igloohome Smart Mortise 2+"} hasheader={false} />
                 <Products products={locks} productHeader="Smart Locks" id="product" />
-                <ProductBanner header={"Iotty Smart Switches."} bkgColor={"none"} productBackgroundStyle={ProductStyle.IottyImage} to="#iotty"
+                <ProductBanner header={"Iotty Smart Switches."} bkgColor={"#9A9EA0"} productBackgroundStyle={ProductStyle.IottyImage} to="#iotty"
                     subText={"Voice activated light switch "} hasheader={true} />
                 <Products products={switches} productHeader="Smart Switches" id="iotty" />
 

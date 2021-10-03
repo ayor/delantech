@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { convert } from "../../middleware/convertToNGN";
 import { validateEmail } from '../../middleware/validate';
+import { useSelector } from 'react-redux'
 
 const OrderForm = ({ totalPrice }) => {
     const [countries, setCountries] = useState([]);
@@ -10,6 +11,8 @@ const OrderForm = ({ totalPrice }) => {
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [loadingState, setLoadingState] = useState(false);
+    const order = useSelector((state) => state.cart);
 
     const _url = "https://countriesnow.space/api/v0.1/countries";
 
@@ -38,7 +41,7 @@ const OrderForm = ({ totalPrice }) => {
             }
 
         } catch (error) {
-            console.log(error)
+            setErrorMessage(errorMessage)
         }
     }
     useEffect(() => {
@@ -75,18 +78,21 @@ const OrderForm = ({ totalPrice }) => {
 
     }
 
-    const orderHandler = () => {
+    const orderHandler = (event) => {
+        event.preventDefault();
+        setLoadingState(true);
         let data = {
             email,
             phone,
             address,
             city,
-            country
+            country,
+            order: order
         }
 
         if (address.trim() === "" || email.trim() === "" ||
             city.trim() === "" || country.trim() === "" ||
-            message.trim() === "" || phone.trim() === "") {
+            phone.trim() === "") {
             setLoadingState(false);
             setErrorMessage("kindly complete all fields, then try again");
 
@@ -98,7 +104,7 @@ const OrderForm = ({ totalPrice }) => {
         }
 
         if (!validateEmail(email)) {
-            // setLoadingState(false);
+            setLoadingState(false);
             setErrorMessage("kindly enter a valid email");
             setTimeout(() => {
                 setErrorMessage("");
@@ -108,14 +114,16 @@ const OrderForm = ({ totalPrice }) => {
         }
 
         fetchData('/api/order', (data) => {
-            console.log(data)
+            setErrorMessage(data.message);
+            setLoadingState(false)
         }, "POST", data)
     }
 
 
     return (
-
         <form className="mx-auto p-4 rounded w-md-75" style={{ backgroundColor: "#7F8081", position: "static" }}>
+            { errorMessage !== "" ? <div className="alert alert-danger alert-dismissible fade show " role="alert">{errorMessage} 
+            </div> : null}
             <p className="text-light">Total : {price}</p>
             <div className="form-row  m-2">
                 <div className="form-group ">
@@ -141,13 +149,13 @@ const OrderForm = ({ totalPrice }) => {
                 <div className="form-group col-md-6 ">
                     <label htmlFor="inputState">Country</label>
                     <select id="inputState" className="form-control form-control-sm" value={country} onChange={(ev) => handleChange(ev, 'country')}>
-                        <option selected>Choose...</option>
+                        <option value="">Choose...</option>
                         {countryDropdown}
                     </select>
                 </div>
             </div>
 
-            <button type="submit" className="btn btn-dark text-light w-100 m-2" onClick={orderHandler}>Place Order</button>
+            <button type="submit" className="btn btn-dark text-light w-100 m-2" onClick={orderHandler}>{loadingState ? "Loading..." : "Place Order"}</button>
         </form>
 
     )

@@ -1,8 +1,10 @@
 const nodemailer = require("nodemailer");
 const { validateEmail } = require('../../middleware/validate');
+import { db } from "../../middleware/db";
+const createInvoice = require('../../middleware/prepareInvoice');
 
-const _usermail = "citrinetechltd@gmail.com"
 
+const _usermail = "lawaltoyeeb@delantech.com.ng"
 const _userpass = process.env.PASS;
 
 
@@ -25,8 +27,10 @@ export default async function handler(req, res) {
             phone,
             address,
             city,
-            country
-        } = req.body;
+            country,
+            order
+        } = JSON.parse(req.body);
+        let invoice;
 
         if (!validateEmail(email)) {
             const err = new Error();
@@ -35,22 +39,50 @@ export default async function handler(req, res) {
             throw err;
         }
 
-        let info = await transporter.sendMail({
-            from: email, // sender address
-            to: "info@delantech.com.ng", // list of receivers
-            subject: `Order from 
-             ${email}`, // Subject line
-            text: ` 
-            Phone number:${phone} 
-            Address - ${address} ,
-            City -  ${city},
-            Country - ${country}
-            `, // plain text body
+        let dbResult = await db.collection('orders').add({
+            order,
+            usermail: email,
+            userphone: phone
         });
 
+
+        if (dbResult.id) {
+          invoice =  await createInvoice({ ...order, id: dbResult.id }, { email, phone, address, city, country });
+
+            let info = await transporter.sendMail({
+                from: email, // sender address
+                to: "info@delantech.com.ng", // list of receivers
+                subject: `Order from 
+             ${email}`, // Subject line
+                text: ` Hello Delantech, 
+            Kindly find attached order request from ${email}.
+            
+            You can call - ${phone} for more detials
+            `, // plain text body
+                attachments: [{
+                    filename: invoice.invoiceName,
+                    path: invoice.path,
+                    contentType: 'application/pdf'
+                }],
+            });
+            let reply = await transporter.sendMail({
+                to: email, // list of receivers
+                subject: `Reply ${info.messageId}`, // Subject line
+                text: ` Hello ${email}, 
+            Kindly find attached your order invoice.
+            
+            A personnel from Delantech will get in touch with you as soon as possible.
+            `, // plain text body
+                attachments: [{
+                    filename: invoice.invoiceName,
+                    path: invoice.path,
+                    contentType: 'application/pdf'
+                }],
+            });
+        }
         res.status(200).json({ message: "Order Received" })
     } catch (error) {
-
+        console.log(error)
         res.status(500).json({ error })
     }
 }

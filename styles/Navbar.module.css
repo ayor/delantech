@@ -11,6 +11,15 @@
    right: 6px;
     
 }
+.Links{
+    animation: showBkg 1s ease;
+transition: all;
+}
+.LinksRemoved{
+    opacity: 0;
+transition: all;
+}
+
 .Cart:active{
     color: #46B5F3;
 }
@@ -42,9 +51,23 @@ transition: all;
 @keyframes showBkg{
     0%{
         opacity: 0;
+        transform: translateY(-10px);
     }
     100%{
         opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+@keyframes showBkg-reverse{
+    
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
 }
@@ -57,7 +80,8 @@ transition: all;
 }
 @media (max-width: 576px){
     .Cart{
-        top: 115px;
+        top: 98px;
+        
     }
 
 }

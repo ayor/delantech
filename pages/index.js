@@ -2,7 +2,7 @@
 import Header from '../components/Header/Header';
 import Products from '../components/Products/Index';
 import Services from '../components/Services/Services';
-import Team from '../components/Team/Team';
+import Partners from '../components/Partners/Partners';
 
 export default function Home() {
 
@@ -10,8 +10,8 @@ export default function Home() {
     <>
       <Header />
       <Products />
-      <Services/>
-      <Team/>
+      <Services />
+      <Partners />
     </>
   )
 }

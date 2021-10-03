@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: [],
+  items: [],
   totalPrice: 0
 }
 
 const calculcateTotal = (state) => {
   let total = 0;
-  state.value.forEach(item => total += Number.parseInt(item.price * item.qty));
+  state.items.forEach(item => total += Number.parseInt(item.price * item.qty));
   state.totalPrice = total;
 }
 
@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
     // which detects changes to a "draft state" and produces a brand new
     // immutable state based off those changes
     decrement: (state, action) => {
-      state.value.forEach(item => {
+      state.items.forEach(item => {
         if (item.id === action.payload) {
           if (item.qty <= 1) { return; }
           item.qty -= 1;
@@ -31,7 +31,7 @@ export const cartSlice = createSlice({
     },
     increment: (state, action) => {
 
-      state.value.forEach(item => {
+      state.items.forEach(item => {
         if (item.id === action.payload) {
 
           item.qty += 1;
@@ -43,8 +43,8 @@ export const cartSlice = createSlice({
     },
     deleteCartItem: (state, action) => {
 
-      const newState = state.value.filter(item => item.id !== action.payload);
-      state.value = [...newState]
+      const newState = state.items.filter(item => item.id !== action.payload);
+      state.items = [...newState]
       calculcateTotal(state);
     },
     updateQty: (state, action) => {
@@ -52,7 +52,7 @@ export const cartSlice = createSlice({
       if (action.payload.qty <= 0) {
         return;
       }
-      state.value.forEach(item => {
+      state.items.forEach(item => {
         if (item.id === action.payload.id) {
           item.qty = action.payload.qty;
         }
@@ -65,17 +65,17 @@ export const cartSlice = createSlice({
         ...action.payload,
         qty: 1
       };
-      let _state = [...state.value];
+      let _state = [...state.items];
       let cartItem = _state.find(item => item.id === data.id);
       if (cartItem) {
-        state.value.forEach(item => {
+        state.items.forEach(item => {
           if (item.id === data.id) {
             item.qty += 1
           }
         })
 
       } else {
-        state.value.push(data);
+        state.items.push(data);
       }
       calculcateTotal(state);
 

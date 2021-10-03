@@ -41,9 +41,9 @@ const OrderForm = ({ totalPrice }) => {
             }
 
         } catch (error) {
-            setErrorMessage(errorMessage)
+            setErrorMessage(error.message)
         }
-    })
+    },[setErrorMessage])
     useEffect(() => {
         fetchData(_url, (data) => {
             setCountries(data);

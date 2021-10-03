@@ -76,7 +76,7 @@ const Index = ({ product, others }) => {
 }
 
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`http://localhost:3000/api/product`, {
+    const res = await fetch(`http://delantech.netlify.app/api/product`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'

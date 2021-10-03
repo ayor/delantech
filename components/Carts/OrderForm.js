@@ -48,7 +48,7 @@ const OrderForm = ({ totalPrice }) => {
         fetchData(_url, (data) => {
             setCountries(data);
         });
-    }, []);
+    }, [fetchData]);
 
     const countryDropdown = countries.map((country, ind) => <option value={country.country} key={ind}>{country.country}</option>);
 

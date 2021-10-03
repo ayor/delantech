@@ -14,7 +14,7 @@ const Header = () => (
                         <h1 className="text-light">Smarter, Secure & Safer Homes For You!</h1>
                         <Link href="mailto:info@delantech.com.ng" passHref>
                            
-                                <a className={"btn  " + BtnStyles.Btn}> <span className="mr-2 ">Make An Order </span><i className="fas fa-paper-plane"></i></a>
+                                <a className={"btn  " + BtnStyles.Btn}> <span className="mr-2 ">Contact us </span><i className="fas fa-paper-plane"></i></a>
                                
                             
                         </Link>

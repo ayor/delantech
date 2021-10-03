@@ -6,7 +6,7 @@ import  Banner from './Banner/Bannner';
 const Services = () => {
     return (
         <>
-            <section className={"container my-5 " + ServiceStyle.Service}>
+            <section className={"container my-5 " + ServiceStyle.Service} id="services">
                 <PageNav pageName={"our services"} />
                 <Banner/>
            </section>

@@ -30,7 +30,7 @@ The policy will be updated at least every 12 months.</p>
                             <span className={footerStyles.footerLink}> <i className="fa fa-phone mr-2"></i> <span>+233 8162 6418 85   </span></span>
                         </li>
                         <li className="m-2">
-                            <span className={footerStyles.footerLink}> <i className="fa fa-mobile mr-2"></i> <span>   +234 8098 7458 49</span></span>
+                            <span className={footerStyles.footerLink}> <i className="fa fa-mobile mr-2"></i> <span>   +234 8060 1329 72</span></span>
                         </li>
                         <li className="m-2">
                             <Link href="mailto:info@delantech.com.ng" passHref>

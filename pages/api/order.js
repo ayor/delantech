@@ -48,7 +48,7 @@ export default async function handler(req, res) {
 
         if (dbResult.id) {
           invoice =  await createInvoice({ ...order, id: dbResult.id }, { email, phone, address, city, country });
-
+            console.log(invoice)
             let info = await transporter.sendMail({
                 from: email, // sender address
                 to: "info@delantech.com.ng", // list of receivers

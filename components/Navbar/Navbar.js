@@ -27,17 +27,17 @@ const Navbar = ({ showBackground, page }) => {
                 <MenuBar clicked={() => setToggleState(!toggleBar)} />
                 {toggleBar ? <div className={"collapse navbar-collapse d-flex justify-content-between "+ NavStyles.Links} id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto " >
-                        <li className="nav-item mr-2">
+                        <li className="nav-item mr-2" onClick={()=> setToggleState(false)}>
                             <Link href="/">
                                 <a className="nav-link " > <span className={page === "Home" ? NavStyles.Active : ""} >Home</span></a>
                             </Link>
                         </li>
-                        <li className="nav-item mr-2">
+                        <li className="nav-item mr-2" onClick={()=> setToggleState(false)}>
                             <Link href="/#product">
                                 <a className="nav-link " > <span className={page === "prod" ? NavStyles.Active : ""}>Products</span></a>
                             </Link>
                         </li>
-                        <li className="nav-item mr-2">
+                        <li className="nav-item mr-2" onClick={()=> setToggleState(false)}>
                             <Link href="/#services">
                                 <a className="nav-link " > <span className={page === "serv" ? NavStyles.Active : ""}>Services</span></a>
                             </Link>
@@ -45,8 +45,8 @@ const Navbar = ({ showBackground, page }) => {
                        
                     </ul>
                     <div>
-                        <Link href="/carts" passHref>
-                            <div>
+                        <Link href="/carts" passHref >
+                            <div onClick={()=> setToggleState(false)}>
                                 <i className="fas fa-shopping-cart "></i><span className={" mx-2   " + NavStyles.Cart}>{cartLength}</span>
                             </div>
                         </Link>

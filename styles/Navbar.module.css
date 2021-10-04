@@ -6,7 +6,7 @@
    top: 17px;
    z-index: 1px;
    color: #f37d46 !important;
-   font-size: 10px;
+   font-size: 12px;
    font-weight: bold;
    right: 6px;
     
@@ -80,7 +80,7 @@ transition: all;
 }
 @media (max-width: 576px){
     .Cart{
-        top: 98px;
+        top: 93px;
         
     }
 

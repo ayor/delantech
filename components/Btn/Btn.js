@@ -8,7 +8,7 @@ const Btn = ({ title, altTitle, clicked, class_name, iconName }) => {
         <button onClick={clicked} className={"btn " + BtnClass.join(" ")}>
             {
                 altTitle ? (<>
-                   <span className={"mr-2 "+BtnStyles.AltMessage}>{altTitle} </span><i className={`fas fa-${iconName} `}></i>
+                   <span className={"mr-2 "+BtnStyles.AltMessage}>{altTitle} </span><i className={`fas fa-check `}></i>
                 </>) : (<>
                     <span className="mr-2">{title} </span><i className={`fas fa-${iconName} `}></i>
                 </>

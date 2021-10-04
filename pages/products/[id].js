@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useState } from 'react';
 import Slider from '../../components/Products/Slider/Slider';
 import { useEmblaCarousel } from 'embla-carousel/react';
-
+import { addToCart } from "../../store/cartSlice";
 const Index = ({ product, others }) => {
 
     const [text, setText] = useState("");
@@ -51,18 +51,18 @@ const Index = ({ product, others }) => {
 
                     </div>
                     <div className="row">
-                <div className="col-12 ">
-                    <small className="text-secondary d-block my-2 text-center"> Demo </small>
-                    <div className="embed-responsive embed-responsive-16by9 d-flex justify-content-center">
-                        <iframe className="embed-responsive-item mr-2" src={product.youtubeUrl} style={{ width: '80%', height:  '300px' }} frameBorder="0" allowFullScreen></iframe>
+                        <div className="col-12 ">
+                            <small className="text-secondary d-block my-2 text-center"> Demo </small>
+                            <div className="embed-responsive embed-responsive-16by9 d-flex justify-content-center">
+                                <iframe className="embed-responsive-item mr-2" src={product.youtubeUrl} style={{ width: '80%', height: '300px' }} frameBorder="0" allowFullScreen></iframe>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
-            
-                </div>
-            </div>
-           
-           
+
+
             <hr />
             <div className="similar_projects row justify-content-center">
                 <small className="text-dark text-center d-block mb-2 ">Similar Products</small>

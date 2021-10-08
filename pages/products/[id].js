@@ -7,9 +7,12 @@ import React, { useEffect, useState } from 'react';
 import Slider from '../../components/Products/Slider/Slider';
 import ReactCarousel from 'react-material-ui-carousel';
 import { addToCart } from "../../store/cartSlice";
+import PlayCircleFilledOutlinedIcon from '@mui/icons-material/PlayCircleFilledOutlined';
+import { Typography, Modal, Button } from "@mui/material";
 const Index = ({ product, others }) => {
 
     const [text, setText] = useState("");
+    const [open, setOpen] = useState(false);
     const [isPhoneWidth, setPhoneWidth] = useState(false);
     const dipatch = useDispatch();
 
@@ -23,19 +26,28 @@ const Index = ({ product, others }) => {
         dipatch(addToCart({ ...product }));
         setText("Added to cart")
     };
+    const handleOpen = () => {
+        setOpen(true)
+    };
+    const handleClose = () => {
+        setOpen(false)
+    };
+
     const images = [product.imageUrl, product.imageUrl_1, product.imageUrl_2, product.imageUrl_3];
 
     let sliders = (
         <ReactCarousel swipe animation="slide" stopAutoPlayOnHover>
-            {images.map((image, ind) =><div className="mb-5 rounded" key={ind} style={{ height: "500px" }}  >
+            {images.map((image, ind) => <div className="mb-5 rounded" key={ind} style={{ height: "500px" }}  >
                 <div className="" style={{
                     backgroundImage: `url(${image})`,
                     backgroundSize: "cover",
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: "center",
                     height: '100%',
+                    display: "flex",
+                    alignItems: "flex-end"
                 }}>
-
+                    <Button onClick={handleOpen} startIcon={<PlayCircleFilledOutlinedIcon /> }> Watch Demo</Button>
                 </div>
             </div>)}
         </ReactCarousel >
@@ -104,6 +116,21 @@ const Index = ({ product, others }) => {
                 <div className="col-12 ">
                     <div className="text-center mt-4 mb-3">
                         {sliders}
+                        <Modal open={open} onClose={handleClose}
+                            aria-labelledby="modal-modal-title"
+                            aria-describedby="modal-modal-description">
+                            <div className="embed-responsive embed-responsive-16by9 " style={{
+                                    position: 'absolute',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    width: "100%",
+                                    boxShadow: 24,
+                                    
+                            }}>
+                                <iframe className="embed-responsive-item mr-2" src={product.youtubeUrl} style={{ width: '100%', height: '400px' }} frameBorder="0" allowFullScreen></iframe>
+                            </div>
+                        </Modal>
                     </div>
                     <div className="row my-3">
                         <div className="col-12 col-md-6 ">
@@ -123,9 +150,7 @@ const Index = ({ product, others }) => {
                             </div>
                         </div>
                         <div className="col-12 col-md-6 ">
-                            <div className="embed-responsive embed-responsive-16by9 d-flex justify-content-center">
-                                <iframe className="embed-responsive-item mr-2" src={product.youtubeUrl} style={{ width: '100%', height: '300px' }} frameBorder="0" allowFullScreen></iframe>
-                            </div>
+
                         </div>
                     </div>
                 </div>

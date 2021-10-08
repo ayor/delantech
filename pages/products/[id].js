@@ -26,21 +26,20 @@ const Index = ({ product, others }) => {
     const images = [product.imageUrl, product.imageUrl_1, product.imageUrl_2, product.imageUrl_3];
 
     let sliders = (
-        <div className="mb-5 " style={{height: "500px"}}  >
-            <ReactCarousel animation="slide" stopAutoPlayOnHover swipe>
-                {images.map((image, ind) => {
-                    <div className="" key={ind} style={{
-                        backgroundImage: `url(${image})`,
-                        backgroundSize: "cover",
-                        backgroundRepeat: 'no-repeat',
-                        backgroundPosition: "center",
-                        height: '100%',
-                    }}>
-                        HELLO THERE
-                    </div>
-                })}
-            </ReactCarousel >
-        </div>
+        <ReactCarousel swipe animation="slide" stopAutoPlayOnHover>
+            {images.map((image, ind) =><div className="mb-5 rounded" key={ind} style={{ height: "500px" }}  >
+                <div className="" style={{
+                    backgroundImage: `url(${image})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: "center",
+                    height: '100%',
+                }}>
+
+                </div>
+                {/* })} */}
+            </div>)}
+        </ReactCarousel >
     )
 
     if (!isPhoneWidth) {

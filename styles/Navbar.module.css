@@ -12,7 +12,6 @@
     
 }
 .Links{
-    animation: showBkg 1s ease;
 transition: all;
 }
 .LinksRemoved{
@@ -81,7 +80,6 @@ transition: all;
 @media (max-width: 576px){
     .Cart{
         top: 93px;
-        
     }
 
 }

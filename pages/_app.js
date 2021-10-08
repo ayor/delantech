@@ -6,12 +6,13 @@ import Script from "next/script";
 import { store } from '../store/store';
 import { Provider } from 'react-redux'
 import { useEffect } from "react";
+import CssBaseline from '@mui/material/CssBaseline';
 
 function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
 
-    const fontAwesome = document.createElement("script"); 
+    const fontAwesome = document.createElement("script");
     fontAwesome.setAttribute("src", "https://kit.fontawesome.com/2b33a4ca20.js");
     fontAwesome.setAttribute("crossOrigin", "anonymous");
 
@@ -36,18 +37,26 @@ function MyApp({ Component, pageProps }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DelanTech</title>
       </Head>
       <Provider store={store}>
+        <CssBaseline />
         <Layout>
           {/* <Script src="" ="" /> */}
           <Component {...pageProps} />
         </Layout>
       </Provider>
-      
+
     </>
   )
 }

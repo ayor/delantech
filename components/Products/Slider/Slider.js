@@ -1,15 +1,14 @@
 const Slider = ({ imageUrl }) => {
-    return (
-        <div className="embla__slide" style={{
-            backgroundImage: `url(${imageUrl})`,
-            backgroundSize: "contain",
-            backgroundRepeat:'no-repeat',
-            backgroundPosition: "center",
-            height: 'auto'
-        }}>
-           
-        </div>
-    )
+    const styles = {
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: "contain",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: "center",
+        height: '100%'
+    }
+
+    return (<>
+    </>)
 }
 
 export default Slider;

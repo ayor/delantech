@@ -37,10 +37,10 @@ a {
 .embla {
   overflow: hidden;
 }
-.embla__container {
-  border-radius: 10px;
-
-  display: flex;
+.__container {
+  height: 300px;
+}
+._product{
   height: 300px;
 }
 .embla__slide {
@@ -51,8 +51,8 @@ a {
 }
 
 @media (max-width: 768px){
-  .embla__container{
-    height: 120px;
+  .__container{
+    height: 150px;
   }
 }
 /* embla end */

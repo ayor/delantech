@@ -21,7 +21,9 @@ const Product = props => {
         props.imageUrl === null ? <Loading /> :
             (<div className="col col-md-6 col-lg-3 mb-4 text-center">
                 <Link href={'/products/'+props.id} passHref>
+                    <a>
                     <Image className="img-fluid rounded" src={props.imageUrl} width="150" height="150" alt={props.name} />
+                    </a>
                 </Link>
                     <small className="text-secondary d-block font-weight-bolder">{props.name}</small>
                     <small className="text-muted mb-2 d-block font-weight-bolder">@{price}</small>

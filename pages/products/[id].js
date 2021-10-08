@@ -37,7 +37,6 @@ const Index = ({ product, others }) => {
                 }}>
 
                 </div>
-                {/* })} */}
             </div>)}
         </ReactCarousel >
     )

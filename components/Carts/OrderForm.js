@@ -214,7 +214,6 @@ const OrderForm = ({ totalPrice }) => {
             label="Your Country"
             labelId="countryInput-label"
             size="small"
-            label="Country"
             style={{ width: '100%' }}
             value={country}
             onChange={(ev) => handleChange(ev, 'country')}

@@ -291,7 +291,7 @@ export async function getServerSideProps({ params }) {
 
   const data = await res.json();
 
-  const _res = await fetch(`http://localhost:5000/api/features`, {
+  const _res = await fetch(`https://delantech.netlify.app/api/features`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

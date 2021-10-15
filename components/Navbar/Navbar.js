@@ -34,7 +34,7 @@ const Navbar = ({ showBackground, page }) => {
                         </li>
                         <li className="nav-item mr-2" >
                             <Link href="/#product">
-                                <a className="nav-link " > <span className={page === "prod" ? NavStyles.Active : ""}>Products</span></a>
+                                <a className="nav-link" > <span className={page === "prod" ? NavStyles.Active : ""}>Products</span></a>
                             </Link>
                         </li>
                         <li className="nav-item mr-2" >
@@ -45,10 +45,10 @@ const Navbar = ({ showBackground, page }) => {
                        
                     </ul>
                     <div>
-                        <Link href="/carts" passHref >
-                            <div >
+                        <Link href="/carts" passHref>
+                            <a href="/carts" className="text-light">
                                 <i className="fas fa-shopping-cart "></i><span className={" mx-2   " + NavStyles.Cart}>{cartLength}</span>
-                            </div>
+                            </a>
                         </Link>
                     </div>
                 </div>

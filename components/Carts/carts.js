@@ -4,13 +4,19 @@ import OrderForm from './OrderForm';
 import styles from '../../styles/Carts.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrement, increment, deleteCartItem, updateQty } from '../../store/cartSlice';
+import { Alert } from "@mui/material";
 import { useEffect } from 'react';
 
 const Carts = () => {
     const dispatch = useDispatch();
     const { items, totalPrice } = useSelector((state) => state.cart);
 
-    const cartsView = items.length === 0 ? (<small>There are currently no items in your cart..</small>) : items.map(item => (
+    const cartsView = items.length === 0 ? (<Alert severity="warning">
+        There are currently no items in your cart..
+        <Link href="/#products">
+            <a className="text-dark"> Take me shopping</a>
+        </Link>
+    </Alert>) : items.map(item => (
         <Cart
             key={item.id} imageUrl={item.imageUrl} qty={item.qty} increment={() => dispatch(increment(item.id))} handleChange={(ev) => dispatch(updateQty({ id: item.id, qty: ev.target.value }))}
             deleteItem={() => dispatch(deleteCartItem(item.id))} decrement={() => dispatch(decrement(item.id))}
@@ -36,7 +42,7 @@ const Carts = () => {
                 {cartsView}
             </div>
             <div className="col-md-12 col-lg-5">
-                    <OrderForm totalPrice={totalPrice} />
+                <OrderForm totalPrice={totalPrice} />
             </div>
         </div>
     </section>)

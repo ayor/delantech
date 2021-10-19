@@ -31,16 +31,16 @@ const Index = ({ product, others, features }) => {
     setOpen(false);
   };
 
-  const images = [
-    product.imageUrl,
-    product.imageUrl_1,
-    product.imageUrl_2,
-    product.imageUrl_3,
-  ];
+  //   const images = [
+  //     product.imageUrl,
+  //     product.imageUrl_1,
+  //     product.imageUrl_2,
+  //     product.imageUrl_3,
+  //   ];
 
   let sliders = (
     <ReactCarousel swipe animation="slide" stopAutoPlayOnHover>
-      {images.map((image, ind) => (
+      {product.images.map((image, ind) => (
         <div className="mb-5 rounded" key={ind} style={{ height: '500px' }}>
           <div
             className=""
@@ -269,7 +269,7 @@ const Index = ({ product, others, features }) => {
               key={item.id}
               name={item.name}
               id={item.id}
-              imageUrl={item.imageUrl}
+              images={item.images}
               alt={item.name}
               price={item.price}
             />

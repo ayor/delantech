@@ -225,7 +225,12 @@ const OrderForm = ({ totalPrice }) => {
 
         <Button
           type="submit"
-          style={{ width: '100%', backgroundColor: '#46B5F3' }}
+          style={{
+            width: '100%',
+            backgroundColor: '#46B5F3',
+            padding: '15px',
+            borderRadius: '30px',
+          }}
           variant="contained"
           onClick={orderHandler}
         >

@@ -28,6 +28,7 @@ const Carts = () => {
       items.map((item) => (
         <Cart
           key={item.id}
+          id={item.id}
           imageUrl={item.images[0]}
           qty={item.qty}
           increment={() => dispatch(increment(item.id))}

@@ -1,11 +1,10 @@
 import React from 'react';
 import { makeStyles, Typography, TextField } from '@material-ui/core';
-import CancelIcon from '@material-ui/icons/Close';
-import { Remove, Add } from '@material-ui/icons';
+import { RemoveCircle, AddCircle, Delete } from '@material-ui/icons';
 import Image from 'next/image';
 import { convert } from '../../middleware/convertToNGN';
 import styles from '../../styles/Carts.module.css';
-
+import Link from 'next/link';
 const useStyles = makeStyles(() => ({
   item: {
     border: `1px solid #aaa`,
@@ -28,6 +27,7 @@ const useStyles = makeStyles(() => ({
   image: { borderRadius: '10px' },
 }));
 const cart = ({
+  id,
   imageUrl,
   name,
   price,
@@ -41,13 +41,15 @@ const cart = ({
   return (
     <div className={classes.item}>
       <div className={classes.sectionLeft}>
-        <Image
-          src={imageUrl}
-          alt=""
-          width="90"
-          height="90"
-          className={classes.image}
-        />
+        <Link href={`/products/${id}`} passHref>
+          <Image
+            src={imageUrl}
+            alt=""
+            width="90"
+            height="90"
+            className={classes.image}
+          />
+        </Link>
       </div>
       <div className={classes.sectionRight}>
         <div
@@ -68,9 +70,9 @@ const cart = ({
           >
             {name}
           </Typography>
-          <CancelIcon
+          <Delete
             style={{
-              color: 'grey',
+              color: 'red',
               fontSize: '16px',
               cursor: 'pointer',
               marginLeft: '5px',
@@ -84,14 +86,27 @@ const cart = ({
         <div className="my-2">
           {/* <h6 className="text-secondary">Qty</h6> */}
 
-          <Remove onClick={decrement} color="secondary" />
+          <RemoveCircle
+            style={{
+              fontSize: '16px',
+              cursor: 'pointer',
+              color: 'grey',
+            }}
+            onClick={decrement}
+          />
           <TextField
             type="number"
             className={classes.inputField}
             value={qty}
             onChange={handleChange}
           />
-          <Add onClick={increment} />
+          <AddCircle
+            style={{
+              fontSize: '16px',
+              cursor: 'pointer',
+            }}
+            onClick={increment}
+          />
         </div>
 
         <div

@@ -19,10 +19,7 @@ const useStyles = makeStyles(() => ({
 
     // borderRadius: '15px',
   },
-  inputField: {
-    width: '50px',
-    textAlign: 'center !important',
-  },
+
   sectionRight: { width: '100%' },
   image: { borderRadius: '10px' },
 }));
@@ -96,7 +93,7 @@ const cart = ({
           />
           <TextField
             type="number"
-            className={classes.inputField}
+            className="qty-input"
             value={qty}
             onChange={handleChange}
           />

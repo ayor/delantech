@@ -421,7 +421,8 @@ textarea {
   overflow: auto;
 }
 
-input {
+.qty-input {
+  width: 50px;
   text-align: center !important;
 }
 

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { convert } from '../../middleware/convertToNGN';
 import styles from '../../styles/Carts.module.css';
 import Link from 'next/link';
-const useStyles = makeStyles(() => ({
+
+const UseStyles = makeStyles(() => ({
   item: {
     border: `1px solid #aaa`,
     borderRadius: '10px',
@@ -34,7 +35,7 @@ const cart = ({
   decrement,
   handleChange,
 }) => {
-  const classes = useStyles();
+  const classes = UseStyles();
   return (
     <div className={classes.item}>
       <div className={classes.sectionLeft}>

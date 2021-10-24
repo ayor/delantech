@@ -6,6 +6,7 @@ import { convert } from '../../../middleware/convertToNGN';
 import Loading from '../../Loading/Loader';
 import { useState } from 'react';
 import Link from 'next/link';
+import { Skeleton } from '@mui/material';
 
 const Product = (props) => {
   const [text, setText] = useState('');
@@ -16,9 +17,8 @@ const Product = (props) => {
     dipatch(addToCart({ ...props }));
     setText('Added to cart');
   };
-
   return props.images.length === 0 ? (
-    <Loading />
+    <Skeleton variant="rectangular" width="150" height="150" />
   ) : (
     <div className="col col-md-6 col-lg-3 mb-4 text-center">
       <Link href={'/products/' + props.id} passHref>

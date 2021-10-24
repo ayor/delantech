@@ -3,7 +3,7 @@ import Igloohome from '../../public/img/igloo.jpeg';
 import Bes from '../../public/img/Bes.jpeg';
 import Iotty from '../../public/img/iotty.jpeg';
 import SmartG4 from '../../public/img/smartG4.jpeg';
-import Fibaro from '../../public/img/Fibaro.jpeg';
+import Fibaro from '../../public/img/fibaro.jpeg';
 import Image from 'next/image';
 import TeamStyle from '../../styles/Team.module.css';
 const Partners = () => (

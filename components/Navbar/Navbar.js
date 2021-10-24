@@ -3,6 +3,7 @@ import NavStyles from '../../styles/Navbar.module.css';
 import { useSelector } from 'react-redux';
 import MenuBar from './HamburgerMenu';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const Navbar = ({ showBackground, page }) => {
   const cartLength = useSelector((state) => state.cart.items.length);
@@ -24,7 +25,9 @@ const Navbar = ({ showBackground, page }) => {
         }
       >
         <Link href="/" passHref>
-          <a className="navbar-brand ">DelanTech</a>
+          <a className="navbar-brand ">
+            <Image src="/img/Delantech.png" width="150" height="20" />
+          </a>
         </Link>
         {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

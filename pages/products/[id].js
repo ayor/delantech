@@ -94,7 +94,7 @@ const Index = ({ product, others, features }) => {
             style={{ height: '250px' }}
           >
             <div
-              className="col-5 m-2 rounded border-1"
+              className="col-5 m-2 rounded "
               style={{
                 backgroundImage: `url(${product.images[0]})`,
                 backgroundSize: 'contain',
@@ -104,7 +104,7 @@ const Index = ({ product, others, features }) => {
               }}
             ></div>
             <div
-              className="col-5 m-2 rounded border-1"
+              className="col-5 m-2 rounded "
               style={{
                 backgroundImage: `url(${product.images[1]})`,
                 backgroundSize: 'contain',
@@ -119,7 +119,7 @@ const Index = ({ product, others, features }) => {
             style={{ height: '250px' }}
           >
             <div
-              className="col-5 m-2 rounded border-1"
+              className="col-5 m-2 rounded "
               style={{
                 backgroundImage: `url(${product.images[2]})`,
                 backgroundSize: 'contain',
@@ -129,7 +129,7 @@ const Index = ({ product, others, features }) => {
               }}
             ></div>
             <div
-              className="col-5 m-2 rounded border-1"
+              className="col-5 m-2 rounded "
               style={{
                 backgroundImage: `url(${product.images[3]})`,
                 backgroundSize: 'contain',

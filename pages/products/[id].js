@@ -72,7 +72,7 @@ const Index = ({ product, others, features }) => {
         <div
           className="col-12 col-md-4 m-1 "
           style={{
-            backgroundImage: `url(${product.images[0]})`,
+            backgroundImage: `url(${product.images[3]})`,
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',

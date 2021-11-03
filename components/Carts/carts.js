@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 
 const Carts = () => {
   const dispatch = useDispatch();
-  const { items, totalPrice } = useSelector((state) => state.cart);
+  const { items, totalPrice } = useSelector((state) => state);
 
   const cartsView =
     items.length === 0 ? (

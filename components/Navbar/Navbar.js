@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const Navbar = ({ showBackground, page }) => {
-  const cartLength = useSelector((state) => state.cart.items.length);
+  const state = useSelector((state) => state);
+  console.log(state);
+  const cartLength = useSelector((state) => state.items.length);
   const [toggleBar, setToggleState] = useState(false);
   const [classNames, setClassNames] = useState(NavStyles.Links);
 

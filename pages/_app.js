@@ -7,6 +7,10 @@ import { store } from '../store/store';
 import { Provider } from 'react-redux';
 import { useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore } from 'redux-persist';
+
+let persistor = persistStore(store);
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -71,7 +75,9 @@ function MyApp({ Component, pageProps }) {
         <title>DelanTech</title>
       </Head>
       <Provider store={store}>
-        <CssBaseline />
+        <PersistGate loading={null} persistor={persistor}>
+          <CssBaseline />
+        </PersistGate>
         <Layout>
           {/* <Script src="" ="" /> */}
           <Component {...pageProps} />

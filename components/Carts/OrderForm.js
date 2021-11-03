@@ -22,7 +22,7 @@ const OrderForm = ({ totalPrice }) => {
   const [email, setEmail] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [loadingState, setLoadingState] = useState(false);
-  const order = useSelector((state) => state.cart);
+  const order = useSelector((state) => state);
 
   const _url = 'https://countriesnow.space/api/v0.1/countries';
 
@@ -160,35 +160,33 @@ const OrderForm = ({ totalPrice }) => {
         <div className="form-row  m-3">
           <div className="form-group ">
             <TextField
-              size="small"
               type="email"
               style={{ width: '100%' }}
               variant="outlined"
               onChange={(ev) => handleChange(ev, 'email')}
               value={email}
               id="inputEmail4"
-              label="Email"
+              placeholder="Email"
             />
           </div>
         </div>
         <div className="form-row  m-3">
           <div className="form-group ">
             <TextField
-              size="small"
               type="tel"
               style={{ width: '100%' }}
               variant="outlined"
               onChange={(ev) => handleChange(ev, 'phone')}
               value={phone}
               id="inputEmail4"
-              label="+234234432309"
+              placeholder="+234234432309"
             />
           </div>
         </div>
         <div className="form-group m-3">
           <TextField
-            size="small"
             type="text"
+            variant="outlined"
             style={{ width: '100%' }}
             onChange={(ev) => handleChange(ev, 'address')}
             value={address}
@@ -198,13 +196,13 @@ const OrderForm = ({ totalPrice }) => {
         </div>
         <div className="form-row m-3">
           <TextField
-            size="small"
             type="text"
+            variant="outlined"
             style={{ width: '100%' }}
             onChange={(ev) => handleChange(ev, 'city')}
             value={city}
             id="inputCity"
-            label="city"
+            placeholder="City"
           />
         </div>
 
@@ -213,12 +211,13 @@ const OrderForm = ({ totalPrice }) => {
             id="countryInput"
             label="Your Country"
             labelId="countryInput-label"
-            size="small"
             style={{ width: '100%' }}
             value={country}
             onChange={(ev) => handleChange(ev, 'country')}
           >
-            <MenuItem value="">Choose a Country</MenuItem>
+            <MenuItem value="" selected>
+              Choose a Country
+            </MenuItem>
             {countryDropdown}
           </Select>
         </div>

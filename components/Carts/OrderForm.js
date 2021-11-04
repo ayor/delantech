@@ -51,8 +51,6 @@ const OrderForm = ({ totalPrice }) => {
           cb(response.data);
         }
       } catch (error) {
-        debugger;
-        console.log(error);
         cb(error);
       }
     },

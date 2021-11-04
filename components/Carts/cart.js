@@ -17,7 +17,7 @@ const UseStyles = makeStyles(() => ({
   sectionLeft: {
     margin: 'auto 20px',
     marginLeft: '0px',
-
+    curosor: 'pointer',
     // borderRadius: '15px',
   },
 
@@ -46,6 +46,7 @@ const cart = ({
             width="90"
             height="90"
             className={classes.image}
+            loading="eager"
           />
         </Link>
       </div>

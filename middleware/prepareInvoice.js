@@ -27,7 +27,7 @@ const createInvoice = async (order, customer) => {
       marginRight: 25,
       marginLeft: 25,
       marginBottom: 25,
-      logo: 'https://delantech.vercel.app/img/sfav.png', //or base64
+      logo: 'https://delantech.vercel.app/img/logo.jpeg', //or base64
       //"logoExtension": "png", //only when logo is base64
       sender: {
         company: 'Delantech',

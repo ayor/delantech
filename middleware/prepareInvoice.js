@@ -31,7 +31,7 @@ const createInvoice = async (order, customer) => {
       //"logoExtension": "png", //only when logo is base64
       sender: {
         company: 'Delantech',
-        address: 'TGS Plaza, Bogije Road, Lekki Express Way, Lekki Lagos.',
+        address: '71D freedom way, Lekki phase 1, Lagos.',
         zip: '100264',
         city: 'Lagos',
         country: 'Nigeria',
@@ -56,7 +56,7 @@ const createInvoice = async (order, customer) => {
     };
     const result = await PDFDOC.createInvoice(data);
 
-    return result;
+    return { result, invoiceName };
   } catch (error) {
     throw error;
   }

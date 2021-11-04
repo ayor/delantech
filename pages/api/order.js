@@ -4,14 +4,10 @@ import { db } from '../../middleware/db';
 const createInvoice = require('../../middleware/prepareInvoice');
 const AWS = require('aws-sdk');
 const uuid = require('uuid');
-const S3 = new AWS.S3();
-
-AWS.config.getCredentials(function (err) {
-  if (err) console.log(err.stack);
-  // credentials not loaded
-  else {
-    console.log('Access key:', AWS.config.credentials.accessKeyId);
-  }
+const S3 = new AWS.S3({
+  region: process.env.aws_secret_access_region,
+  accessKeyId: process.env.aws_access_key_id,
+  secretAccessKey: process.env.aws_secret_access_key,
 });
 
 const _usermail = 'lawaltoyeeb@delantech.com.ng';
@@ -53,68 +49,60 @@ export default async function handler(req, res) {
         { ...order, id: dbResult.id },
         { email, phone, address, city, country }
       );
-      const s3_data = {
-        key: dbResult.id,
-        bucket: 'delantech-invoices',
-        contentType: 'application/pdf',
-        body: invoice.pdf,
-        contentEncoding: 'base64',
-      };
 
-      /**
-         * const bucket = new AWS.S3(); 
-         fs.writeFileSync(path.join('invoices', invoiceName), result.pdf, 'base64');
-        return { invoiceName, path: path.join( 'invoices', invoiceName) }
-         */
+      const s3_data = {
+        Key: invoice.invoiceName,
+        Bucket: process.env.aws_secret_access_bucket,
+        ContentType: 'application/pdf',
+        Body: Buffer.from(invoice.result.pdf, 'base64'),
+        ACL: 'public-read',
+      };
 
       S3.putObject(s3_data, async (err, resp) => {
         if (err) {
-          throw new Error('Could not upload invoice to aws s3 bucket');
+          console.log(err);
+          throw err;
         }
 
-        console.log(resp);
+        let info = await transporter.sendMail({
+          from: email, // sender address
+          to: 'info@delantech.com.ng', // list of receivers
+          subject: `Order from
+               ${email}`, // Subject line
+          text: ` Hello Delantech,
+              Kindly find attached order request from ${email}.
 
-        const object = S3.getObject({
-          Bucket: 'delantech-invoice',
-          Key: dbResult.id,
+              You can call - ${phone} for more detials
+              `, // plain text body
+          attachments: [
+            {
+              filename: invoice.invoiceName,
+              href: `https://${process.env.aws_secret_access_bucket}.s3.amazonaws.com/${invoice.invoiceName}`,
+              contentType: 'application/pdf',
+            },
+          ],
         });
 
-        console.log(object);
-        // let info = await transporter.sendMail({
-        //   from: email, // sender address
-        //   to: 'info@delantech.com.ng', // list of receivers
-        //   subject: `Order from
-        //        ${email}`, // Subject line
-        //   text: ` Hello Delantech,
-        //       Kindly find attached order request from ${email}.
-
-        //       You can call - ${phone} for more detials
-        //       `, // plain text body
-        //   // attachments: [{
-        //   //     filename: invoice.invoiceName,
-        //   //     path: invoice.path,
-        //   //     contentType: 'application/pdf'
-        //   // }],
-        // });
-        // let reply = await transporter.sendMail({
-        //   to: email, // list of receivers
-        //   subject: `Reply ${info.messageId}`, // Subject line
-        //   text: ` Hello ${email},
-        //       Kindly find attached your order invoice.
-
-        //       A personnel from Delantech will get in touch with you as soon as possible.
-        //       `, // plain text body
-        //   // attachments: [{
-        //   //     filename: invoice.invoiceName,
-        //   //     path: invoice.path,
-        //   //     contentType: 'application/pdf'
-        //   // }],
-        // });
+        let reply = await transporter.sendMail({
+          to: email, // list of receivers
+          subject: `Reply ${info.messageId}`, // Subject line
+          sender: 'Delan Technologies',
+          text: ` Hello ${email},
+              Kindly find attached your order invoice. A personnel from Delantech will get in touch with you as soon as possible.
+              `, // plain text body
+          attachments: [
+            {
+              filename: invoice.invoiceName,
+              href: `https://${process.env.aws_secret_access_bucket}.s3.amazonaws.com/${invoice.invoiceName}`,
+              contentType: 'application/pdf',
+            },
+          ],
+        });
       });
     }
     res.status(200).json({ message: 'Order Received' });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error });
+    res.status(500).json({ message: error.message });
   }
 }

@@ -39,7 +39,7 @@ const cart = ({
   return (
     <div className={classes.item}>
       <div className={classes.sectionLeft}>
-        <Link href={`/products/${id}`} passHref>
+        <Link href={`/products/${id}`}>
           <Image
             src={imageUrl}
             alt=""

@@ -43,15 +43,17 @@ const OrderForm = ({ totalPrice }) => {
           });
 
           response = await res.json();
-
-          cb(response.data);
+          debugger;
+          cb(response);
         } else {
           res = await fetch(url);
           response = await res.json();
           cb(response.data);
         }
       } catch (error) {
-        setErrorMessage(error.message);
+        debugger;
+        console.log(error);
+        cb(error);
       }
     },
     [setErrorMessage]
@@ -140,7 +142,11 @@ const OrderForm = ({ totalPrice }) => {
     fetchData(
       '/api/order',
       (data) => {
+        console.log(data);
         setErrorMessage(data.message);
+        setTimeout(() => {
+          setErrorMessage('');
+        }, 3000);
         setLoadingState(false);
       },
       'POST',
@@ -152,7 +158,7 @@ const OrderForm = ({ totalPrice }) => {
     <Paper variant="outlined">
       <form className="mx-auto p-4 rounded w-md-75">
         {errorMessage !== '' ? (
-          <Alert severity="error">{errorMessage} </Alert>
+          <Alert severity="info">{errorMessage} </Alert>
         ) : null}
         <Typography variant="h6" style={{ color: '#46B5F3' }} align="center">
           Total : {price}
@@ -215,9 +221,7 @@ const OrderForm = ({ totalPrice }) => {
             value={country}
             onChange={(ev) => handleChange(ev, 'country')}
           >
-            <MenuItem value="" selected>
-              Choose a Country
-            </MenuItem>
+            <MenuItem value="">Choose a Country</MenuItem>
             {countryDropdown}
           </Select>
         </div>
@@ -233,7 +237,7 @@ const OrderForm = ({ totalPrice }) => {
           variant="contained"
           onClick={orderHandler}
         >
-          {loadingState ? <LinearProgress /> : 'Place Order'}
+          {loadingState ? 'Placing order...' : 'Place Order'}
         </Button>
       </form>
     </Paper>

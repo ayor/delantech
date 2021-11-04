@@ -17,14 +17,7 @@ const Carts = () => {
   const { items, totalPrice } = useSelector((state) => state);
 
   const cartsView =
-    items.length === 0 ? (
-      <Alert severity="warning">
-        There are currently no items in your cart..
-        <Link href="/#products">
-          <a className="text-dark"> Take me shopping</a>
-        </Link>
-      </Alert>
-    ) : (
+    items.length > 0 ? (
       items.map((item) => (
         <Cart
           key={item.id}
@@ -41,6 +34,13 @@ const Carts = () => {
           price={item.price}
         />
       ))
+    ) : (
+      <Alert severity="warning">
+        There are currently no items in your cart..
+        <Link href="/#products">
+          <a className="text-dark"> Take me shopping</a>
+        </Link>
+      </Alert>
     );
 
   return (

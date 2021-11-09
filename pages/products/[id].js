@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import Slider from '../../components/Products/Slider/Slider';
 import ReactCarousel from 'react-material-ui-carousel';
-import { addToCart } from '../../store/cartSlice';
 import PlayCircleFilledOutlinedIcon from '@mui/icons-material/PlayCircleFilledOutlined';
+import { addToCart } from '../../store/cartSlice';
 import { Modal, Chip, Typography } from '@mui/material';
+import ProductBanner from '../../components/ProductBanner/ProductBanner';
+
 const Index = ({ product, others, features }) => {
   const [text, setText] = useState('');
   const [open, setOpen] = useState(false);
@@ -68,80 +70,81 @@ const Index = ({ product, others, features }) => {
 
   if (!isPhoneWidth) {
     sliders = (
-      <div className="row  mb-5" style={{ height: '500px' }}>
-        <div
-          className="col-12 col-md-4 m-1 "
-          style={{
-            backgroundImage: `url(${product.images[3]})`,
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'flex-end',
-          }}
-        >
-          <Chip
-            label="Watch Demo"
-            onClick={handleOpen}
-            variant="contained"
-            icon={<PlayCircleFilledOutlinedIcon />}
-          />
-        </div>
-        <div className="col-12 m-1 col-md-7 ">
-          <div
-            className="row justify-content-center mb-2"
-            style={{ height: '250px' }}
-          >
-            <div
-              className="col-5 m-2 rounded "
-              style={{
-                backgroundImage: `url(${product.images[0]})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                height: '100%',
-              }}
-            ></div>
-            <div
-              className="col-5 m-2 rounded "
-              style={{
-                backgroundImage: `url(${product.images[1]})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                height: '100%',
-              }}
-            ></div>
-          </div>
-          <div
-            className="row justify-content-center"
-            style={{ height: '250px' }}
-          >
-            <div
-              className="col-5 m-2 rounded "
-              style={{
-                backgroundImage: `url(${product.images[2]})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                height: '100%',
-              }}
-            ></div>
-            <div
-              className="col-5 m-2 rounded "
-              style={{
-                backgroundImage: `url(${product.images[3]})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                height: '100%',
-              }}
-            ></div>
-          </div>
-        </div>
-      </div>
+      <ProductBanner
+        clicked={handleOpen}
+        bannerImages={product.backgroundImages}
+      />
     );
+    // sliders = (
+    //   <div className="row  mb-5" style={{ height: '500px' }}>
+    //     <div
+    //       className="col-12 col-md-4 m-1 "
+    //       style={{
+    //         backgroundImage: `url(${product.images[3]})`,
+    //         backgroundSize: 'cover',
+    //         backgroundRepeat: 'no-repeat',
+    //         backgroundPosition: 'center',
+    //         height: '100%',
+    //         display: 'flex',
+    //         alignItems: 'flex-end',
+    //       }}
+    //     >
+    //
+    //     </div>
+    //     <div className="col-12 m-1 col-md-7 ">
+    //       <div
+    //         className="row justify-content-center mb-2"
+    //         style={{ height: '250px' }}
+    //       >
+    //         <div
+    //           className="col-5 m-2 rounded "
+    //           style={{
+    //             backgroundImage: `url(${product.images[0]})`,
+    //             backgroundSize: 'contain',
+    //             backgroundRepeat: 'no-repeat',
+    //             backgroundPosition: 'center',
+    //             height: '100%',
+    //           }}
+    //         ></div>
+    //         <div
+    //           className="col-5 m-2 rounded "
+    //           style={{
+    //             backgroundImage: `url(${product.images[1]})`,
+    //             backgroundSize: 'contain',
+    //             backgroundRepeat: 'no-repeat',
+    //             backgroundPosition: 'center',
+    //             height: '100%',
+    //           }}
+    //         ></div>
+    //       </div>
+    //       <div
+    //         className="row justify-content-center"
+    //         style={{ height: '250px' }}
+    //       >
+    //         <div
+    //           className="col-5 m-2 rounded "
+    //           style={{
+    //             backgroundImage: `url(${product.images[2]})`,
+    //             backgroundSize: 'contain',
+    //             backgroundRepeat: 'no-repeat',
+    //             backgroundPosition: 'center',
+    //             height: '100%',
+    //           }}
+    //         ></div>
+    //         <div
+    //           className="col-5 m-2 rounded "
+    //           style={{
+    //             backgroundImage: `url(${product.images[3]})`,
+    //             backgroundSize: 'contain',
+    //             backgroundRepeat: 'no-repeat',
+    //             backgroundPosition: 'center',
+    //             height: '100%',
+    //           }}
+    //         ></div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
   return (
     <div className="container ">

@@ -77,11 +77,11 @@ function MyApp({ Component, pageProps }) {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <CssBaseline />
+          <Layout>
+            {/* <Script src="" ="" /> */}
+            <Component {...pageProps} />
+          </Layout>
         </PersistGate>
-        <Layout>
-          {/* <Script src="" ="" /> */}
-          <Component {...pageProps} />
-        </Layout>
       </Provider>
     </>
   );

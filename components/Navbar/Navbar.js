@@ -26,7 +26,12 @@ const Navbar = ({ showBackground, page }) => {
       >
         <Link href="/" passHref>
           <a className="navbar-brand ">
-            <Image src="/img/Delantech.png" width="150" height="20" />
+            <Image
+              src="/img/Delantech.png"
+              width="150"
+              height="20"
+              alt="brand-logo"
+            />
           </a>
         </Link>
         {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

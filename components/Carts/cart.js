@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const UseStyles = makeStyles(() => ({
   item: {
-    border: `1px solid #aaa`,
+    border: `.5px solid #ccc`,
     borderRadius: '10px',
     padding: '20px',
     margin: '5px 0',
@@ -39,7 +39,7 @@ const cart = ({
   return (
     <div className={classes.item}>
       <div className={classes.sectionLeft}>
-        <Link href={`/products/${id}`}>
+        <Link href={`/products/${id}`} passHref>
           <Image
             src={imageUrl}
             alt=""
@@ -95,8 +95,8 @@ const cart = ({
           />
           <TextField
             type="number"
-            className="qty-input"
             value={qty}
+            style={{ textAlign: 'center', width: '50px' }}
             onChange={handleChange}
           />
           <AddCircle

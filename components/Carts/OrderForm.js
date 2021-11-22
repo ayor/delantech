@@ -27,35 +27,32 @@ const OrderForm = ({ totalPrice }) => {
   const _url = 'https://countriesnow.space/api/v0.1/countries';
 
   const price = convert(totalPrice);
-  const fetchData = useCallback(
-    async (url, cb, method, data) => {
-      try {
-        let res;
-        let response;
-        if (method === 'POST') {
-          res = await fetch(url, {
-            method: method,
-            mode: 'no-cors',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-          });
+  const fetchData = useCallback(async (url, cb, method, data) => {
+    try {
+      let res;
+      let response;
+      if (method === 'POST') {
+        res = await fetch(url, {
+          method: method,
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
 
-          response = await res.json();
-          debugger;
-          cb(response);
-        } else {
-          res = await fetch(url);
-          response = await res.json();
-          cb(response.data);
-        }
-      } catch (error) {
-        cb(error);
+        response = await res.json();
+        debugger;
+        cb(response);
+      } else {
+        res = await fetch(url);
+        response = await res.json();
+        cb(response.data);
       }
-    },
-    [setErrorMessage]
-  );
+    } catch (error) {
+      cb(error);
+    }
+  }, []);
   useEffect(() => {
     fetchData(_url, (data) => {
       setCountries(data);
@@ -153,8 +150,8 @@ const OrderForm = ({ totalPrice }) => {
   };
 
   return (
-    <Paper variant="outlined">
-      <form className="mx-auto p-4 rounded w-md-75">
+    <Paper variant="outlined" style={{ borderRadius: 30 }}>
+      <form className="mx-auto p-4 rounded w-md-75 ">
         {errorMessage !== '' ? (
           <Alert severity="info">{errorMessage} </Alert>
         ) : null}
@@ -165,6 +162,7 @@ const OrderForm = ({ totalPrice }) => {
           <div className="form-group ">
             <TextField
               type="email"
+              size="small"
               style={{ width: '100%' }}
               variant="outlined"
               onChange={(ev) => handleChange(ev, 'email')}
@@ -178,18 +176,20 @@ const OrderForm = ({ totalPrice }) => {
           <div className="form-group ">
             <TextField
               type="tel"
+              size="small"
               style={{ width: '100%' }}
               variant="outlined"
               onChange={(ev) => handleChange(ev, 'phone')}
               value={phone}
               id="inputEmail4"
-              placeholder="+234234432309"
+              placeholder="+2348123456789"
             />
           </div>
         </div>
         <div className="form-group m-3">
           <TextField
             type="text"
+            size="small"
             variant="outlined"
             style={{ width: '100%' }}
             onChange={(ev) => handleChange(ev, 'address')}
@@ -201,6 +201,7 @@ const OrderForm = ({ totalPrice }) => {
         <div className="form-row m-3">
           <TextField
             type="text"
+            size="small"
             variant="outlined"
             style={{ width: '100%' }}
             onChange={(ev) => handleChange(ev, 'city')}
@@ -214,6 +215,7 @@ const OrderForm = ({ totalPrice }) => {
           <Select
             id="countryInput"
             label="Your Country"
+            size="small"
             labelId="countryInput-label"
             style={{ width: '100%' }}
             value={country}

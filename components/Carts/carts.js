@@ -45,23 +45,23 @@ const Carts = () => {
 
   return (
     <section className="container my-5">
-      <div className="row pt-4 px-4 mt-5">
-        <div className="col">
-          <div className="">
-            <h2 className={styles.H1}>Cart Items</h2>
+      <div className="row pt-4 px-4 mt-5 pt-3">
+        <div className="col-md-12 col-lg-7">
+          <h2 className={styles.H1}>Cart Items</h2>
+          <hr />
+
+          <div
+            className="row"
+            style={{
+              height: '400px',
+              overflowY: 'scroll',
+            }}
+          >
+            <div className="">{cartsView}</div>
           </div>
         </div>
-      </div>
-      <hr />
-      <div
-        className="row"
-        style={{
-          height: '400px',
-          overflowY: 'scroll',
-        }}
-      >
-        <div className="col-md-12 col-lg-7">{cartsView}</div>
-        <div className="col-md-12 col-lg-5">
+
+        <div className="col-md-12 col-lg-5 mt-3">
           <OrderForm totalPrice={totalPrice} />
         </div>
       </div>

@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
 import Layout from '../components/Layout';
 import Script from 'next/script';
+import Image from 'next/image';
 import { store } from '../store/store';
 import { Provider } from 'react-redux';
 import { useEffect } from 'react';
@@ -71,9 +72,37 @@ function MyApp({ Component, pageProps }) {
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
+        <noscript>
+          <Image
+            alt="facebook pixel"
+            height="1"
+            width="1"
+            src="https://www.facebook.com/tr?id=726953401369013&ev=PageView&noscript=1"
+          />
+        </noscript>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DelanTech</title>
       </Head>
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+    (!function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', '726953401369013'); 
+    fbq('track', 'PageView'););
+  `,
+        }}
+      />
+
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <CssBaseline />

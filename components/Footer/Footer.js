@@ -84,7 +84,7 @@ const Footer = () => (
               <span className={footerStyles.footerLink}>
                 {' '}
                 <i className="fa fa-phone mr-2"></i>{' '}
-                <span>+233 8162 6418 85 </span>
+                <span>+234 8162 6418 85 </span>
               </span>
             </li>
             <li className="m-2">
